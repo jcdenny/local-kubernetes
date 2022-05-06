@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-apps
+spec:
+  destination:
+    namespace: argo
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: argocd/applications
+    repoURL: 'https://github.com/jcdenny/local-kubernetes.git'
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
