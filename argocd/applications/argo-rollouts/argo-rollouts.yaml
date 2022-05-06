@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-rollouts
+  namespace: argo
+spec:
+  project: default
+  source:
+    chart: argo-rollouts
+    helm:
+      parameters:
+      - name: dashboard.enabled
+        value: "true"
+      - name: dashboard.service.port
+        value: 3200
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 2.14.0
+    helm:
+      releaseName: argo-rollouts
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argo
