@@ -10,6 +10,8 @@ spec:
     path: infrastructure
     repoURL: 'https://github.com/jcdenny/local-kubernetes.git'
     targetRevision: HEAD
+    directory:
+      recurse: true
   project: default
   syncPolicy:
     automated:
