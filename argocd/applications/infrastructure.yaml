@@ -10,7 +10,7 @@ spec:
     path: infrastructure
     repoURL: 'https://github.com/jcdenny/local-kubernetes.git'
     targetRevision: HEAD
-  project: josiah-project
+  project: default
   syncPolicy:
     automated:
       prune: true
